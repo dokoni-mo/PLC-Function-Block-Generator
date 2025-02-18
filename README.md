@@ -11,7 +11,7 @@ The generated code is formatted in **Structured Text (ST)** for Siemens PLCs and
 -Automated Code Generation – Converts structured tabular data into PLC function blocks  
 -Supports Multiple Devices – Generates commands for **valves, pumps, sensors, and motors**  
 -Dynamic Data Parsing – Extracts relevant functional elements and maps them into PLC syntax  
--Works in Google Sheets & Excel – Uses `LET`, `TEXTJOIN`, and `ARRAYFORMULA` functions  
+-Works in Google Sheets – Uses `LET`, `TEXTJOIN`, and `ARRAYFORMULA` functions  
 ---
 ##  How It Works  
 1. Input Data in a Table – Define actions, device names, and comments in structured columns  
