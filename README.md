@@ -5,17 +5,19 @@ This project provides an automated way to **generate PLC functional block code**
 
 The generated code is formatted in **Structured Text (ST)** for Siemens PLCs and follows an optimized pattern for **functional block automation**.
 
+---
+
 ## Features  
 **Automated Code Generation** – Converts structured tabular data into PLC function blocks  
 **Supports Multiple Devices** – Generates commands for **valves, pumps, sensors, and motors**  
 **Dynamic Data Parsing** – Extracts relevant functional elements and maps them into PLC syntax  
 **Works in Google Sheets & Excel** – Uses `LET`, `TEXTJOIN`, and `ARRAYFORMULA` functions  
-
+---
 ##  How It Works  
 1. **Input Data in a Table** – Define actions, device names, and comments in structured columns  
 2. **Formula Processes Data** – Parses each row and generates function block code  
 3. **Outputs Structured Text Code** – Generates PLC function blocks dynamically  
-
+---
 ##  PLC Functional Block Table Example  
 
 | No. | Ref No. | Phase | Step | Description | CIP/Water Supply | Transfer/Return | General Devices |
@@ -25,7 +27,7 @@ The generated code is formatted in **Structured Text (ST)** for Siemens PLCs and
 | 3  | 003    | 2    | 1  | Main Washing Cycle | V008 - Turn ON (Open detergent valve) <br> V009 - Turn ON (Enable main wash cycle) <br> V010 - Turn ON (Activate heat exchanger) <br> S003 - Check (Temperature sensor) | P003 - Start (Main wash pump) <br> V106 - Turn ON (Enable detergent return) <br> V107 - Turn ON (Open secondary flow) <br> S004 - Check (Conductivity sensor) | M003 - Turn ON (Heater activation) <br> A003 - Turn ON (Open air purge) <br> V204 - Turn ON (Drain wash system) <br> X002 - Start (Circulation process) |
 | 4  | 004    | 2    | 2  | Rinse & Drain | V011 - Turn OFF (Close detergent valve) <br> V012 - Turn ON (Enable rinse water) <br> V013 - Turn ON (Open final drain) <br> S005 - Check (Flow sensor) | P004 - Stop (Main wash pump) <br> V108 - Turn OFF (Close return line) <br> V109 - Turn ON (Final rinse activation) <br> S006 - Check (Water purity sensor) | M004 - Turn OFF (Cooling system) <br> A004 - Turn OFF (Deactivate purge air) <br> V205 - Turn OFF (Close recirculation) <br> X003 - Stop (Final processing step) |
 
-
+---
 
 ### ** Google Sheets Formula**
 ```
@@ -62,7 +64,7 @@ BEGIN" & CHAR(10);
   IF(fullText = ""; ""; header & ARRAYFORMULA(IFERROR(JOIN(CHAR(10); result); "")) &  CHAR(10) & "END_FUNCTION")
 )
 ```
-
+---
 ### **Output formula example**
 ```
 FUNCTION "P1S1" : Void
@@ -87,3 +89,8 @@ BEGIN
 END_FUNCTION
 
 ```
+---
+
+## Contributors
+- [Evgenii-Zinner](https://github.com/Evgenii-Zinner) - Co-creator
+- [Azamat Choorov](https://github.com/dokoni-mo) - Co-creator
